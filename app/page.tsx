@@ -213,12 +213,12 @@ export default function Home() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                      <Link
-                        href={`/products/${model.slug}`}
+                  />
+                </div>
                 <div className="space-y-3">
                   <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/70">
                     Featured design
-                      </Link>
+                  </p>
                   <h3 className="text-2xl font-semibold text-white">
                     Aurora Signature Build
                   </h3>
@@ -229,19 +229,19 @@ export default function Home() {
                 </div>
               </div>
             </MotionDiv>
-              <Link
-                href="/about"
+
+            <Stagger className="grid gap-6 md:grid-cols-3">
               {featuredModels.map((model, index) => (
                 <MotionDiv
                   key={model.slug}
-              </Link>
+                  variants={staggerItem}
                   className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-cyan-200/40"
-                <Link
-                  href="/contact"
+                >
+                  <div className="absolute inset-0 opacity-0 transition group-hover:opacity-100">
                     <div className="aurora-sheen h-full w-full" />
                   </div>
                   <div className="relative z-10 flex h-full flex-col justify-between gap-6">
-                </Link>
+                    <div className="relative h-36 overflow-hidden rounded-2xl border border-white/10">
                       <Image
                         src={highlightAssets[index] ?? model.images[0]}
                         alt={model.name}
@@ -261,12 +261,12 @@ export default function Home() {
                       <span className="text-lg font-semibold text-white">
                         {model.price}
                       </span>
-                      <a
+                      <Link
                         href={`/products/${model.slug}`}
                         className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition group-hover:text-white"
                       >
                         View details
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </MotionDiv>

@@ -28,7 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      style={{ "--public-base": basePath } as CSSProperties}
+      style={{
+        "--aurora-logo-url": `url(${basePath}/aurorasoundwavelogo.png)`,
+      } as CSSProperties}
     >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
