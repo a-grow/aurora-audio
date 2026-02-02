@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #05070b;
+  --foreground: #eef4ff;
+  --aurora-emerald: #00ffa3;
+  --aurora-turquoise: #36c2ff;
+  --aurora-violet: #8a4dff;
+  --aurora-rose: #ff72c6;
 }
 
 @theme inline {
@@ -14,13 +18,141 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #05070b;
+    --foreground: #eef4ff;
   }
 }
 
+html {
+  min-height: 100%;
+  background-color: var(--background);
+}
+
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: transparent;
+}
+
+.aurora-bg {
+  position: fixed;
+  inset: -12vh -10vw;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at top, rgba(54, 194, 255, 0.18), transparent 55%),
+    linear-gradient(to bottom, rgba(5, 7, 11, 0.5) 0%, rgba(5, 7, 11, 0.8) 55%, rgba(5, 7, 11, 0.96) 78%, rgba(5, 7, 11, 1) 100%),
+    url("/aurorasoundwavelogo.png");
+  background-repeat: no-repeat;
+  background-position: center top, center, center top;
+  background-size: 140% 140%, cover, 130% auto;
+  filter: blur(18px) saturate(120%);
+  opacity: 0.72;
+  transform: scale(1.03);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0.15) 80%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0.15) 80%, rgba(0, 0, 0, 0) 100%);
+}
+
+.aurora-logo-bg {
+  position: fixed;
+  top: -4rem;
+  left: 50%;
+  width: 140vw;
+  max-width: 1600px;
+  height: 520px;
+  transform: translateX(-50%);
+  z-index: 0;
+  background-image: url("/aurorasoundwavelogo.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  opacity: 0.4;
+  filter: blur(1px) brightness(1.05);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 55%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 55%, rgba(0, 0, 0, 0) 100%);
+}
+
+.aurora-content {
+  position: relative;
+  z-index: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.aurora-sheen {
+  background: linear-gradient(120deg,
+      rgba(0, 255, 163, 0.25),
+      rgba(54, 194, 255, 0.35),
+      rgba(138, 77, 255, 0.3),
+      rgba(255, 114, 198, 0.25));
+}
+
+.aurora-glow {
+  box-shadow: 0 0 45px rgba(54, 194, 255, 0.35), 0 0 90px rgba(138, 77, 255, 0.25);
+}
+
+.wave-line {
+  animation: waveShift 6s ease-in-out infinite;
+}
+
+.wave-line:nth-child(2) {
+  animation-delay: -1.5s;
+}
+
+.wave-line:nth-child(3) {
+  animation-delay: -3s;
+}
+
+.aurora-wave {
+  background: linear-gradient(90deg,
+      rgba(0, 255, 163, 0.2),
+      rgba(54, 194, 255, 0.6),
+      rgba(138, 77, 255, 0.55),
+      rgba(255, 114, 198, 0.35));
+  background-size: 200% 100%;
+  animation: auroraFlow 8s ease-in-out infinite;
+}
+
+@keyframes auroraFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes waveShift {
+  0%,
+  100% {
+    transform: translateY(0px) scaleX(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-14px) scaleX(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-30%);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(30%);
+    opacity: 1;
+  }
+}
+
+.shimmer {
+  animation: shimmer 8s ease-in-out infinite alternate;
 }
