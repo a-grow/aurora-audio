@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import SiteHeader from "./components/SiteHeader";
 import {
   FadeIn,
@@ -11,12 +12,13 @@ import {
   staggerItem,
 } from "./components/Motion";
 import { products } from "./data/products";
+import { withBasePath } from "./lib/paths";
 
 const featuredModels = products.slice(0, 3);
 const highlightAssets = [
-  "/products/aurora-1.svg",
-  "/products/aurora-2.svg",
-  "/products/aurora-3.svg",
+  withBasePath("/products/aurora-1.svg"),
+  withBasePath("/products/aurora-2.svg"),
+  withBasePath("/products/aurora-3.svg"),
 ];
 
 const testimonials = [
@@ -58,7 +60,10 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center">
             <div
               aria-hidden
-              className="h-[900px] w-[210%] translate-y-8 bg-[url('/aurorasoundwavelogo.png')] bg-repeat-x bg-[center_18%] bg-contain opacity-70 brightness-110 blur-[1px] [mask-image:linear-gradient(to_bottom,transparent_0%,black_18%,black_100%)]"
+              style={{
+                backgroundImage: `url(${withBasePath("/aurorasoundwavelogo.png")})`,
+              }}
+              className="h-[900px] w-[210%] translate-y-8 bg-repeat-x bg-[center_18%] bg-contain opacity-70 brightness-110 blur-[1px] [mask-image:linear-gradient(to_bottom,transparent_0%,black_18%,black_100%)]"
             />
           </div>
           <div className="relative z-[2] mx-auto flex w-full max-w-6xl flex-col items-center gap-12 text-center">
@@ -73,18 +78,18 @@ export default function Home() {
                 50mm drivers • 38 hrs battery • Hi-Res
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <a
+                <Link
                   href="/collections"
                   className="aurora-glow rounded-full bg-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/30"
                 >
                   Explore Collection
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/about"
                   className="rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white/90 transition hover:border-white/40 hover:text-white"
                 >
                   Our Story
-                </a>
+                </Link>
               </div>
               <ul className="mt-2 flex flex-wrap items-center justify-center gap-5 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-100/70">
                 <li>Studio-tuned</li>
@@ -94,7 +99,7 @@ export default function Home() {
               <div className="mt-4 flex w-full items-center justify-center">
                 <div className="relative h-32 w-full max-w-xl overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
                   <Image
-                    src="/productbanner.png"
+                    src={withBasePath("/productbanner.png")}
                     alt="Aurora Audio product banner"
                     fill
                     className="object-cover object-center scale-110"
@@ -139,12 +144,12 @@ export default function Home() {
                     Discover premium headphones engineered for luminous clarity.
                   </p>
                 </div>
-                <a
+                <Link
                   href="/collections"
                   className="aurora-glow rounded-full bg-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/25"
                 >
                   Explore Collection
-                </a>
+                </Link>
               </div>
             </FadeIn>
 
@@ -183,12 +188,12 @@ export default function Home() {
                   Signature headphone models.
                 </h2>
               </div>
-              <a
+              <Link
                 href="/collection"
                 className="rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 transition hover:border-white/40 hover:text-white"
               >
                 Explore all
-              </a>
+              </Link>
             </div>
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}
@@ -203,17 +208,17 @@ export default function Home() {
               <div className="relative z-10 grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
                 <div className="relative h-40 overflow-hidden rounded-2xl border border-white/10 sm:h-48">
                   <Image
-                    src="/headphones.png"
+                    src={withBasePath("/headphones.png")}
                     alt="Aurora Audio headphones"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
+                      <Link
+                        href={`/products/${model.slug}`}
                 <div className="space-y-3">
                   <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/70">
                     Featured design
-                  </p>
+                      </Link>
                   <h3 className="text-2xl font-semibold text-white">
                     Aurora Signature Build
                   </h3>
@@ -224,19 +229,19 @@ export default function Home() {
                 </div>
               </div>
             </MotionDiv>
-
-            <Stagger className="grid gap-6 md:grid-cols-3">
+              <Link
+                href="/about"
               {featuredModels.map((model, index) => (
                 <MotionDiv
                   key={model.slug}
-                  variants={staggerItem}
+              </Link>
                   className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-cyan-200/40"
-                >
-                  <div className="absolute inset-0 opacity-0 transition group-hover:opacity-100">
+                <Link
+                  href="/contact"
                     <div className="aurora-sheen h-full w-full" />
                   </div>
                   <div className="relative z-10 flex h-full flex-col justify-between gap-6">
-                    <div className="relative h-36 overflow-hidden rounded-2xl border border-white/10">
+                </Link>
                       <Image
                         src={highlightAssets[index] ?? model.images[0]}
                         alt={model.name}

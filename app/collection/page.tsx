@@ -2,6 +2,7 @@ import Image from "next/image";
 import SiteHeader from "../components/SiteHeader";
 import CollectionGrid from "./CollectionGrid";
 import { products } from "../data/products";
+import { withBasePath } from "../lib/paths";
 
 export default function CollectionPage() {
   return (
@@ -27,7 +28,7 @@ export default function CollectionPage() {
               </div>
               <div className="relative h-52 overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:h-60">
                 <Image
-                  src="/headphones.png"
+                  src={withBasePath("/headphones.png")}
                   alt="Aurora Audio headphones"
                   fill
                   className="object-cover object-center scale-110"

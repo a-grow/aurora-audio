@@ -1,3 +1,5 @@
+import { withBasePath } from "../lib/paths";
+
 export type Product = {
   name: string;
   slug: string;
@@ -24,9 +26,9 @@ export const products: Product[] = [
       "Alcantara memory foam",
     ],
     images: [
-      "/products/aurora-1.svg",
-      "/products/aurora-2.svg",
-      "/products/aurora-3.svg",
+      withBasePath("/products/aurora-1.svg"),
+      withBasePath("/products/aurora-2.svg"),
+      withBasePath("/products/aurora-3.svg"),
     ],
     tier: "Studio",
   },
@@ -44,9 +46,9 @@ export const products: Product[] = [
       "Precision machined aluminum",
     ],
     images: [
-      "/products/aurora-2.svg",
-      "/products/aurora-3.svg",
-      "/products/aurora-1.svg",
+      withBasePath("/products/aurora-2.svg"),
+      withBasePath("/products/aurora-3.svg"),
+      withBasePath("/products/aurora-1.svg"),
     ],
     tier: "Pro",
   },
@@ -64,9 +66,9 @@ export const products: Product[] = [
       "USB-C lossless mode",
     ],
     images: [
-      "/products/aurora-3.svg",
-      "/products/aurora-1.svg",
-      "/products/aurora-2.svg",
+      withBasePath("/products/aurora-3.svg"),
+      withBasePath("/products/aurora-1.svg"),
+      withBasePath("/products/aurora-2.svg"),
     ],
     tier: "Standard",
   },
@@ -84,9 +86,9 @@ export const products: Product[] = [
       "Magnesium alloy frame",
     ],
     images: [
-      "/products/aurora-1.svg",
-      "/products/aurora-2.svg",
-      "/products/aurora-3.svg",
+      withBasePath("/products/aurora-1.svg"),
+      withBasePath("/products/aurora-2.svg"),
+      withBasePath("/products/aurora-3.svg"),
     ],
     tier: "Studio",
   },
@@ -104,9 +106,9 @@ export const products: Product[] = [
       "AuraGlow finish",
     ],
     images: [
-      "/products/aurora-2.svg",
-      "/products/aurora-3.svg",
-      "/products/aurora-1.svg",
+      withBasePath("/products/aurora-2.svg"),
+      withBasePath("/products/aurora-3.svg"),
+      withBasePath("/products/aurora-1.svg"),
     ],
     tier: "Pro",
   },
@@ -124,9 +126,9 @@ export const products: Product[] = [
       "Quick charge 10 min",
     ],
     images: [
-      "/products/aurora-3.svg",
-      "/products/aurora-1.svg",
-      "/products/aurora-2.svg",
+      withBasePath("/products/aurora-3.svg"),
+      withBasePath("/products/aurora-1.svg"),
+      withBasePath("/products/aurora-2.svg"),
     ],
     tier: "Standard",
   },
