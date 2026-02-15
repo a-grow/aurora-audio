@@ -27,7 +27,7 @@ export default function ProductGallery({
             src={images[active]}
             alt={`${name} visual ${active + 1}`}
             fill
-            className="object-cover"
+            className="object-contain p-8"
           />
         </div>
       </MotionDiv>
@@ -37,11 +37,10 @@ export default function ProductGallery({
             key={`${image}-${index}`}
             type="button"
             onClick={() => setActive(index)}
-            className={`relative h-24 overflow-hidden rounded-2xl border transition sm:h-28 ${
-              index === active
+            className={`relative h-24 overflow-hidden rounded-2xl border transition sm:h-28 ${index === active
                 ? "border-cyan-200/60"
                 : "border-white/10 hover:border-white/30"
-            }`}
+              }`}
           >
             <Image
               src={image}

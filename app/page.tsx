@@ -13,13 +13,10 @@ import {
 } from "./components/Motion";
 import { products } from "./data/products";
 import { withBasePath } from "./lib/paths";
+import ProductCard from "./components/ProductCard";
 
 const featuredModels = products.slice(0, 3);
-const highlightAssets = [
-  withBasePath("/products/aurora-1.svg"),
-  withBasePath("/products/aurora-2.svg"),
-  withBasePath("/products/aurora-3.svg"),
-];
+
 
 const testimonials = [
   {
@@ -232,44 +229,7 @@ export default function Home() {
 
             <Stagger className="grid gap-6 md:grid-cols-3">
               {featuredModels.map((model, index) => (
-                <MotionDiv
-                  key={model.slug}
-                  variants={staggerItem}
-                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-cyan-200/40"
-                >
-                  <div className="absolute inset-0 opacity-0 transition group-hover:opacity-100">
-                    <div className="aurora-sheen h-full w-full" />
-                  </div>
-                  <div className="relative z-10 flex h-full flex-col justify-between gap-6">
-                    <div className="relative h-36 overflow-hidden rounded-2xl border border-white/10">
-                      <Image
-                        src={highlightAssets[index] ?? model.images[0]}
-                        alt={model.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-semibold text-white">
-                        {model.name}
-                      </h3>
-                      <p className="text-sm text-slate-200/80">
-                        {model.shortDescription}
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-lg font-semibold text-white">
-                        {model.price}
-                      </span>
-                      <Link
-                        href={`/products/${model.slug}`}
-                        className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition group-hover:text-white"
-                      >
-                        View details
-                      </Link>
-                    </div>
-                  </div>
-                </MotionDiv>
+                <ProductCard key={model.slug} product={model} index={index} />
               ))}
             </Stagger>
           </div>

@@ -156,3 +156,46 @@ html {
 .shimmer {
   animation: shimmer 8s ease-in-out infinite alternate;
 }
+
+/* Hover Effects Assets */
+.product-card-lift {
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.product-card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px -12px rgba(54, 194, 255, 0.25);
+}
+
+.glow-nebula { background: radial-gradient(circle, rgba(0, 255, 163, 0.15), transparent 70%); }
+.glow-borealis { background: radial-gradient(circle, rgba(138, 77, 255, 0.15), transparent 70%); }
+.glow-pulse { background: radial-gradient(circle, rgba(0, 255, 163, 0.15), transparent 70%); }
+
+.gradient-nebula { background: linear-gradient(135deg, rgba(0, 255, 163, 0.05), rgba(54, 194, 255, 0.05)); }
+.gradient-borealis { background: linear-gradient(135deg, rgba(138, 77, 255, 0.05), rgba(255, 114, 198, 0.05)); }
+.gradient-pulse { background: linear-gradient(135deg, rgba(0, 255, 163, 0.05), rgba(54, 194, 255, 0.05)); }
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift:hover {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.glow-intensify {
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.group:hover .glow-intensify {
+  filter: brightness(1.4) saturate(1.2);
+  opacity: 1;
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 20px rgba(54, 194, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.25);
+}

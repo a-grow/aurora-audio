@@ -26,7 +26,7 @@ export const products: Product[] = [
       "Alcantara memory foam",
     ],
     images: [
-      withBasePath("/products/aurora-1.svg"),
+      withBasePath("/HeadsetN.png"),
       withBasePath("/products/aurora-2.svg"),
       withBasePath("/products/aurora-3.svg"),
     ],
@@ -46,7 +46,7 @@ export const products: Product[] = [
       "Precision machined aluminum",
     ],
     images: [
-      withBasePath("/products/aurora-2.svg"),
+      withBasePath("/headsetB.png"),
       withBasePath("/products/aurora-3.svg"),
       withBasePath("/products/aurora-1.svg"),
     ],
@@ -66,7 +66,7 @@ export const products: Product[] = [
       "USB-C lossless mode",
     ],
     images: [
-      withBasePath("/products/aurora-3.svg"),
+      withBasePath("/HeadsetP.png"),
       withBasePath("/products/aurora-1.svg"),
       withBasePath("/products/aurora-2.svg"),
     ],
