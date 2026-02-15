@@ -70,7 +70,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
                         href={`/products/${product.slug}`}
                         className={isTarget
                             ? "inline-flex items-center justify-center text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition-all px-4 py-2 rounded-full border border-cyan-200/30 hover:text-white button-glow leading-none"
-                            : "text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition-all px-4 py-2 rounded-full border border-cyan-200/30 hover:text-white"
+                            : "text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition-all px-4 py-2 rounded-full border border-white/20 hover:border-white/40 hover:text-white"
                         }
                     >
                         View details
