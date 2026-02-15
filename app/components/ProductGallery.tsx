@@ -48,26 +48,28 @@ export default function ProductGallery({
           />
         </div>
       </MotionDiv>
-      <div className="grid gap-4 sm:grid-cols-3">
-        {images.map((image, index) => (
-          <button
-            key={`${image}-${index}`}
-            type="button"
-            onClick={() => setActive(index)}
-            className={`relative overflow-hidden rounded-2xl border transition ${isTarget ? "aspect-[16/10]" : "h-24 sm:h-28"} ${index === active
-              ? "border-cyan-200/60"
-              : "border-white/10 hover:border-white/30"
-              }`}
-          >
-            <Image
-              src={image}
-              alt={`${name} preview ${index + 1}`}
-              fill
-              className="object-cover"
-            />
-          </button>
-        ))}
-      </div>
+      {!isTarget && (
+        <div className="grid gap-4 sm:grid-cols-3">
+          {images.map((image, index) => (
+            <button
+              key={`${image}-${index}`}
+              type="button"
+              onClick={() => setActive(index)}
+              className={`relative overflow-hidden rounded-2xl border transition ${isTarget ? "aspect-[16/10]" : "h-24 sm:h-28"} ${index === active
+                ? "border-cyan-200/60"
+                : "border-white/10 hover:border-white/30"
+                }`}
+            >
+              <Image
+                src={image}
+                alt={`${name} preview ${index + 1}`}
+                fill
+                className="object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
