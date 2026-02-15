@@ -32,7 +32,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
             </div>
 
             <div className="relative z-10 flex h-full flex-col justify-between gap-6">
-                <div className="relative h-48 overflow-hidden rounded-2xl border border-white/10 bg-black/20">
+                <div className="relative aspect-[1.875] overflow-hidden rounded-2xl border border-white/10 bg-black/20">
                     <Image
                         src={product.images[0]}
                         alt={product.name}

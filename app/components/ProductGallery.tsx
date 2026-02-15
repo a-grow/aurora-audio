@@ -1,17 +1,20 @@
-"use client";
-
-import Image from "next/image";
-import { useState } from "react";
-import { MotionDiv, auroraEase } from "./Motion";
+import { Product } from "../data/products";
 
 export default function ProductGallery({
-  images,
-  name,
+  product,
 }: {
-  images: string[];
-  name: string;
+  product: Product;
 }) {
+  const images = product.images;
+  const name = product.name;
   const [active, setActive] = useState(0);
+
+  const isNebula = product.slug === "aurora-nebula";
+  const isBorealis = product.slug === "aurora-borealis";
+  const isPulse = product.slug === "aurora-pulse";
+
+  const glowClass = isNebula ? "glow-nebula" : isBorealis ? "glow-borealis" : isPulse ? "glow-pulse" : "";
+  const gradientClass = isNebula ? "gradient-nebula" : isBorealis ? "gradient-borealis" : isPulse ? "gradient-pulse" : "";
 
   return (
     <div className="space-y-6">
@@ -20,9 +23,11 @@ export default function ProductGallery({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: auroraEase }}
-        className="rounded-[32px] border border-white/10 bg-gradient-to-br from-white/10 via-transparent to-white/5 p-6"
+        className={`relative overflow-hidden rounded-[32px] border border-white/10 p-6 ${gradientClass}`}
       >
-        <div className="relative h-72 w-full overflow-hidden rounded-3xl border border-white/10 bg-black/40 sm:h-96">
+        <div className={`absolute inset-0 opacity-40 ${glowClass}`} aria-hidden />
+
+        <div className="relative aspect-[1.875] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40">
           <Image
             src={images[active]}
             alt={`${name} visual ${active + 1}`}
@@ -37,9 +42,9 @@ export default function ProductGallery({
             key={`${image}-${index}`}
             type="button"
             onClick={() => setActive(index)}
-            className={`relative h-24 overflow-hidden rounded-2xl border transition sm:h-28 ${index === active
-                ? "border-cyan-200/60"
-                : "border-white/10 hover:border-white/30"
+            className={`relative aspect-[16/10] overflow-hidden rounded-2xl border transition ${index === active
+              ? "border-cyan-200/60"
+              : "border-white/10 hover:border-white/30"
               }`}
           >
             <Image

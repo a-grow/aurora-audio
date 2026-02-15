@@ -36,7 +36,7 @@ export default async function ProductDetailPage({
             </Link>
 
             <div className="mt-8 grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-              <ProductGallery images={product.images} name={product.name} />
+              <ProductGallery product={product} />
 
               <div className="space-y-8">
                 <div>
