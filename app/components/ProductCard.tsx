@@ -68,7 +68,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
                     </span>
                     <Link
                         href={`/products/${product.slug}`}
-                        className={`text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition-all px-4 py-2 rounded-full border border-cyan-200/30 hover:text-white ${isTarget ? 'button-glow' : ''}`}
+                        className={`inline-flex items-center justify-center text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition-all px-4 py-2 rounded-full border border-cyan-200/30 hover:text-white ${isTarget ? 'button-glow' : ''}`}
                     >
                         View details
                     </Link>
