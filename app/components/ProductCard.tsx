@@ -35,12 +35,12 @@ export default function ProductCard({ product, index }: ProductCardProps) {
             </div>
 
             <div className="relative z-10 flex h-full flex-col justify-between gap-6">
-                <div className="relative aspect-[1.875] overflow-hidden rounded-2xl border border-white/10 bg-black/20">
+                <div className={`relative overflow-hidden rounded-2xl border border-white/10 bg-black/20 ${isTarget ? 'aspect-[1.875]' : 'h-48'}`}>
                     <Image
                         src={product.images[0]}
                         alt={product.name}
                         fill
-                        className={`object-contain p-4 ${isTarget ? 'transition-transform duration-500 group-hover:scale-110' : ''}`}
+                        className={`${isTarget ? 'object-contain p-4 transition-transform duration-500 group-hover:scale-110' : 'object-cover'}`}
                     />
 
                     {/* Text Reveal Overlay */}
