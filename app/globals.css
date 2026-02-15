@@ -242,3 +242,22 @@ html {
   box-shadow: 0 0 20px rgba(54, 194, 255, 0.4);
   background-color: rgba(255, 255, 255, 0.25);
 }
+
+/* Forceful Image Consistency Overrides */
+.homepage-product-image-container,
+.details-product-image-container {
+  aspect-ratio: 1.875 !important;
+  border-radius: 1rem !important;
+  /* matches 2xl */
+  overflow: hidden !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+.homepage-product-image-container img,
+.details-product-image-container img {
+  object-fit: contain !important;
+  border-radius: 1rem !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}

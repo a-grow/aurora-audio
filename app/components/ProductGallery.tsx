@@ -37,14 +37,14 @@ export default function ProductGallery({
         {isTarget && <div className={`absolute inset-0 opacity-40 ${glowClass}`} aria-hidden />}
 
         <div className={`relative w-full overflow-hidden border border-white/10 ${isTarget
-          ? "!aspect-[1.875] !rounded-2xl !bg-black/40 !overflow-hidden"
+          ? "details-product-image-container aspect-[1.875] rounded-2xl bg-black/40"
           : "h-72 sm:h-96 rounded-3xl bg-black/20"
           }`}>
           <Image
             src={images[active]}
             alt={`${name} visual ${active + 1}`}
             fill
-            className={isTarget ? "!object-contain !p-8 !rounded-2xl" : "object-cover"}
+            className={isTarget ? "object-contain p-8 rounded-2xl" : "object-cover"}
           />
         </div>
       </MotionDiv>
