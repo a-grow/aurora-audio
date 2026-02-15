@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+import { MotionDiv, auroraEase } from "./Motion";
 import { Product } from "../data/products";
 
 export default function ProductGallery({
