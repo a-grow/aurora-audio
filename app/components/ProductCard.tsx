@@ -14,6 +14,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
     const isNebula = product.slug === "aurora-nebula";
     const isBorealis = product.slug === "aurora-borealis";
     const isPulse = product.slug === "aurora-pulse";
+    const isTarget = isNebula || isBorealis || isPulse;
 
     const glowClass = isNebula ? "glow-nebula" : isBorealis ? "glow-borealis" : isPulse ? "glow-pulse" : "";
     const gradientClass = isNebula ? "gradient-nebula" : isBorealis ? "gradient-borealis" : isPulse ? "gradient-pulse" : "";
@@ -21,10 +22,10 @@ export default function ProductCard({ product, index }: ProductCardProps) {
     return (
         <MotionDiv
             variants={staggerItem}
-            className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 product-card-lift animate-gradient-shift ${gradientClass}`}
+            className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 ${isTarget ? `product-card-lift animate-gradient-shift ${gradientClass}` : ''}`}
         >
             {/* Background Glow Overlay */}
-            <div className={`absolute inset-0 opacity-0 transition group-hover:opacity-100 ${glowClass} glow-intensify`} aria-hidden />
+            {isTarget && <div className={`absolute inset-0 opacity-0 transition group-hover:opacity-100 ${glowClass} glow-intensify`} aria-hidden />}
 
             {/* Aurora Sheen Overlay */}
             <div className="absolute inset-0 opacity-0 transition group-hover:opacity-10" aria-hidden>
@@ -37,19 +38,21 @@ export default function ProductCard({ product, index }: ProductCardProps) {
                         src={product.images[0]}
                         alt={product.name}
                         fill
-                        className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                        className={`object-contain p-4 ${isTarget ? 'transition-transform duration-500 group-hover:scale-110' : ''}`}
                     />
 
                     {/* Text Reveal Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <span className="text-lg font-bold tracking-wider text-white px-4 text-center">
-                            {product.name}
-                        </span>
-                    </div>
+                    {isTarget && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            <span className="text-lg font-bold tracking-wider text-white px-4 text-center">
+                                {product.name}
+                            </span>
+                        </div>
+                    )}
                 </div>
 
                 <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-white transition-colors group-hover:text-cyan-200">
+                    <h3 className={`text-xl font-semibold text-white transition-colors ${isTarget ? 'group-hover:text-cyan-200' : ''}`}>
                         {product.name}
                     </h3>
                     <p className="text-sm text-slate-200/80 line-clamp-2">
@@ -63,7 +66,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
                     </span>
                     <Link
                         href={`/products/${product.slug}`}
-                        className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition-all px-4 py-2 rounded-full border border-cyan-200/30 button-glow hover:text-white"
+                        className={`text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200 transition-all px-4 py-2 rounded-full border border-cyan-200/30 hover:text-white ${isTarget ? 'button-glow' : ''}`}
                     >
                         View details
                     </Link>
