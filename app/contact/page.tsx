@@ -14,11 +14,10 @@ export default function ContactPage() {
                 Contact
               </p>
               <h1 className="text-4xl font-semibold text-white">
-                Let’s design your perfect listening experience.
+                Contact Us
               </h1>
               <p className="text-sm text-slate-200/80">
-                Reach out for product consultations, custom tuning requests, or
-                premium support. We’ll respond within 24 hours.
+                We’d love to hear from you. Please reach out with any questions or feedback.
               </p>
               <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-200/80">
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
@@ -60,14 +59,14 @@ export default function ContactPage() {
                   required
                   rows={5}
                   className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyan-300 focus:outline-none"
-                  placeholder="Tell us about your listening goals."
+                  placeholder="Your message"
                 />
               </div>
               <button
                 type="submit"
                 className="w-full rounded-full bg-white/15 py-3 text-sm font-semibold text-white transition hover:bg-white/25"
               >
-                Send message
+                Submit
               </button>
             </form>
           </div>
