@@ -19,10 +19,12 @@ export default function ProductCard({ product, index }: ProductCardProps) {
     const glowClass = isNebula ? "glow-nebula" : isBorealis ? "glow-borealis" : isPulse ? "glow-pulse" : "";
     const gradientClass = isNebula ? "gradient-nebula" : isBorealis ? "gradient-borealis" : isPulse ? "gradient-pulse" : "";
 
+    const shadowClass = isNebula ? "shadow-lift-nebula" : isBorealis ? "shadow-lift-borealis" : isPulse ? "shadow-lift-pulse" : "";
+
     return (
         <MotionDiv
             variants={staggerItem}
-            className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 ${isTarget ? `product-card-lift animate-gradient-shift ${gradientClass}` : ''}`}
+            className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 ${isTarget ? `product-card-lift animate-gradient-shift ${gradientClass} ${shadowClass}` : ''}`}
         >
             {/* Background Glow Overlay */}
             {isTarget && <div className={`absolute inset-0 opacity-0 transition group-hover:opacity-100 ${glowClass} glow-intensify`} aria-hidden />}
