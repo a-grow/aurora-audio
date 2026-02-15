@@ -244,20 +244,32 @@ html {
 }
 
 /* Forceful Image Consistency Overrides */
-.homepage-product-image-container,
+.homepage-product-image-container {
+  width: auto !important;
+  height: auto !important;
+  aspect-ratio: 1.875 !important;
+  border-radius: 1rem !important;
+  overflow: visible !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
 .details-product-image-container {
   aspect-ratio: 1.875 !important;
   border-radius: 1rem !important;
-  /* matches 2xl */
   overflow: hidden !important;
   mask-image: none !important;
   -webkit-mask-image: none !important;
 }
 
-.homepage-product-image-container img,
-.details-product-image-container img {
+.homepage-product-image-container img {
   object-fit: contain !important;
   border-radius: 1rem !important;
-  mask-image: none !important;
-  -webkit-mask-image: none !important;
+}
+
+.details-product-image-container img {
+  object-fit: cover !important;
+  /* High-fidelity cover for details */
+  aspect-ratio: 1.875 !important;
+  border-radius: 1rem !important;
 }
