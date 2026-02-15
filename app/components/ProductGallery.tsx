@@ -23,7 +23,7 @@ export default function ProductGallery({
   const gradientClass = isNebula ? "gradient-nebula" : isBorealis ? "gradient-borealis" : isPulse ? "gradient-pulse" : "";
 
   return (
-    <div className="space-y-6">
+    <div className={isTarget ? "" : "space-y-6"}>
       <MotionDiv
         key={active}
         initial={{ opacity: 0, y: 20 }}
