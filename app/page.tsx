@@ -304,12 +304,12 @@ export default function Home() {
                   Trusted by listeners worldwide.
                 </h2>
               </div>
-              <Link
-                href="/contact"
+              <a
+                href={withBasePath("/contact/")}
                 className="rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 transition hover:border-white/40 hover:text-white"
               >
                 Contact us
-              </Link>
+              </a>
             </FadeIn>
             <Stagger className="mt-10 grid gap-6 md:grid-cols-3">
               {testimonials.map((item) => (
