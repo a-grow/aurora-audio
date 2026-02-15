@@ -44,7 +44,7 @@ export default function ProductGallery({
             src={images[active]}
             alt={`${name} visual ${active + 1}`}
             fill
-            className={isTarget ? "object-contain p-8" : "object-cover"}
+            className={isTarget ? "object-contain p-8 rounded-2xl" : "object-cover"}
           />
         </div>
       </MotionDiv>
